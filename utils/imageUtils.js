@@ -21,6 +21,19 @@ export const applyFilter = async () => {
   Alert.alert('ฟิลเตอร์', 'ทำไม่ได้');
 };
 
+export const flipImage = async (uri, direction = "horizontal") => {
+  const result = await ImageManipulator.manipulateAsync(
+    uri,
+    [
+      {
+        flip: direction === "horizontal" ? ImageManipulator.FlipType.Horizontal : ImageManipulator.FlipType.Vertical,
+      },
+    ],
+    { compress: 1, format: ImageManipulator.SaveFormat.PNG }
+  );
+  return result.uri;
+};
+
 export const saveImage = async (uri, hasPermission) => {
   if (!uri || !hasPermission) {
     Alert.alert("ไม่สามารถบันทึกได้", "ต้องขอสิทธิ์เข้าถึงคลังภาพก่อน");

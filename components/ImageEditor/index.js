@@ -3,7 +3,7 @@ import { View, Image, Button, Alert } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 
 import styles from "./styles";
-import { rotateImage, applyFilter, saveImage } from "../../utils/imageUtils";
+import { rotateImage, applyFilter, saveImage, flipImage } from "../../utils/imageUtils";
 import { requestMediaPermission } from "../../utils/permissions";
 
 export default function ImageEditor() {
@@ -40,6 +40,12 @@ export default function ImageEditor() {
     setRotation((rotation + degree + 360) % 360);
   };
 
+  const handleFlip = async (direction) => {
+    if (!image) return;
+    const newUri = await flipImage(image, direction);
+    setImage(newUri);
+  };
+
   return (
     <View style={styles.container}>
       {image && <Image source={{ uri: image }} style={styles.image} />}
@@ -54,6 +60,15 @@ export default function ImageEditor() {
         </View>
         <View style={styles.buttonInRow}>
           <Button title="หมุนขวา 90°" onPress={() => handleRotate("right")} disabled={!image} />
+        </View>
+      </View>
+
+      <View style={[styles.row, styles.buttonSpacing]}>
+        <View style={styles.buttonInRow}>
+          <Button title="Flip ซ้ายขวา" onPress={() => handleFlip("horizontal")} disabled={!image} />
+      </View>
+        <View style={styles.buttonInRow}>
+          <Button title="Flip บนล่าง" onPress={() => handleFlip("vertical")} disabled={!image} />
         </View>
       </View>
 

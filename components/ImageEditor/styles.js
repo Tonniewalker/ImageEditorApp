@@ -3,14 +3,14 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "top",
     alignItems: "center",
-    padding: 20,
+    padding: 25,
   },
   image: {
-    width: 300,
-    height: 300,
-    marginBottom: 20,
+    width: 350,
+    height: 350,
+    marginBottom: 10,
     resizeMode: "contain",
   },
   buttonSpacing: {
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   },
   buttonInRow: {
     flex: 1,
-    marginHorizontal: 5,
+    marginHorizontal: 2,
   },
 });
 

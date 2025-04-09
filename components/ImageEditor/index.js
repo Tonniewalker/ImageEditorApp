@@ -56,28 +56,28 @@ export default function ImageEditor() {
 
       <View style={[styles.row, styles.buttonSpacing]}>
         <View style={styles.buttonInRow}>
-          <Button title="หมุนซ้าย 90°" onPress={() => handleRotate("left")} disabled={!image} />
+          <Button title="หมุนซ้าย 90°" onPress={() => handleRotate("left")} disabled={!image} color = "#607D8B"/>
         </View>
         <View style={styles.buttonInRow}>
-          <Button title="หมุนขวา 90°" onPress={() => handleRotate("right")} disabled={!image} />
+          <Button title="หมุนขวา 90°" onPress={() => handleRotate("right")} disabled={!image} color = "#607D8B"/>
         </View>
       </View>
 
       <View style={[styles.row, styles.buttonSpacing]}>
         <View style={styles.buttonInRow}>
-          <Button title="Flip ซ้ายขวา" onPress={() => handleFlip("horizontal")} disabled={!image} />
+          <Button title="Flip ซ้ายขวา" onPress={() => handleFlip("horizontal")} disabled={!image} color = "#607D8B"/>
       </View>
         <View style={styles.buttonInRow}>
-          <Button title="Flip บนล่าง" onPress={() => handleFlip("vertical")} disabled={!image} />
+          <Button title="Flip บนล่าง" onPress={() => handleFlip("vertical")} disabled={!image} color = "#607D8B"/>
         </View>
       </View>
 
       <View style={styles.buttonSpacing}>
-        <Button title="ใส่ฟิลเตอร์ไม่ได้" onPress={applyFilter} disabled={!image} />
+        <Button title="ใส่ฟิลเตอร์ไม่ได้" onPress={applyFilter} disabled={!image} color = "#f44336"/>
       </View>
 
       <View style={styles.buttonSpacing}>
-        <Button title="บันทึกรูปภาพ" onPress={() => saveImage(image, hasMediaPermission)} disabled={!image} />
+        <Button title="บันทึกรูปภาพ" onPress={() => saveImage(image, hasMediaPermission)} disabled={!image} color = "#4CAF50"/>
       </View>
     </View>
   );
